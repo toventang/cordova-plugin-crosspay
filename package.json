@@ -1,0 +1,20 @@
+{
+  "name": "cordova-plugin-crosspay",
+  "version": "0.0.2",
+  "description": "wechatpay, alipay",
+  "cordova": {
+    "id": "cordova-plugin-crosspay",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "wechatpay",
+    "alipay",
+    "cordova",
+    "ionic"
+  ],
+  "author": "toven",
+  "license": "MIT License"
+}

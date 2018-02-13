@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-crosspay" version="0.0.2" 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova-plugin-crosspay</name>
+    <js-module name="crosspay" src="www/cordova-plugin-crosspay.js">
+        <clobbers target="cordova.plugins.crosspay" />
+    </js-module>
+    <platform name="android">
+        <hook type="after_plugin_add" src="scripts/android-install.js" />
+        <hook type="after_plugin_install" src="scripts/android-install.js" />
+        <hook type="before_plugin_rm" src="scripts/android-install.js" />
+        <hook type="before_plugin_uninstall" src="scripts/android-install.js" />
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="CrossPay">
+                <param name="android-package" value="com.simpleel.cordova.CrossPay" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name=".wxapi.WXPayEntryActivity" android:exported="true" android:launchMode="singleTop">
+                <intent-filter>
+                    <action android:name="android.intent.action.VIEW"/>
+                    <category android:name="android.intent.category.DEFAULT"/>
+                    <data android:scheme="Anything"/>
+                </intent-filter>
+            </activity>
+            <activity android:name="com.alipay.sdk.app.H5PayActivity" android:configChanges="orientation|keyboardHidden|navigation" android:exported="false" android:screenOrientation="behind"></activity>
+        </config-file>
+        <!-- plugin source code -->
+        <source-file src="src/android/CrossPay.java" target-dir="src/com/simpleel/cordova"/>
+        <source-file src="src/android/PayResult.java" target-dir="src/com/simpleel/cordova"/>
+        <!-- <source-file src="src/android/WXPayEntryActivity.java" target-dir="src/com/gky/cra/wxapi"/> -->
+        <!-- Wechat libs -->
+        <source-file src="src/android/libs/libammsdk.jar" target-dir="libs"/>
+        <!-- Alipay libs -->
+        <source-file src="src/android/libs/alipaySdk-20170922.jar" target-dir="libs"/>
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="CrossPay">
+                <param name="ios-package" value="CDVCrossPay"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <!-- plugin source code -->
+        <header-file src="src/ios/CDVCrossPay.h"/>
+        <source-file src="src/ios/CDVCrossPay.m"/>
+        <!-- Wechat libs  -->
+        <header-file src="src/ios/libs/OpenSDK1.7.7/WXApi.h"/>
+        <header-file src="src/ios/libs/OpenSDK1.7.7/WXApiObject.h"/>
+        <source-file src="src/ios/libs/OpenSDK1.7.7/libWeChatSDK.a" framework="true"/>
+        <!-- Alipay libs -->
+        <framework src="src/ios/libs/AlipaySDK.framework" custom="true" />
+        <resource-file src="src/ios/libs/AlipaySDK.bundle"/>
+        <!-- Other required frameworks -->
+        <framework src="libz.dylib" />
+        <framework src="libsqlite3.0.dylib" />
+        <framework src="SystemConfiguration.framework" weak="true"/>
+        <framework src="libstdc++.6.dylib" />
+        <framework src="libc++.tbd" weak="true"/>
+        <framework src="CFNetwork.framework" weak="true"/>
+        <framework src="CoreMotion.framework" weak="true"/>
+        <framework src="Security.framework" weak="true"/>
+        <framework src="CoreTelephony.framework" weak="true"/>
+    </platform>
+</plugin>
