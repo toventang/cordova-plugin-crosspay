@@ -1,4 +1,4 @@
-package com.simpleel.cordova;
+package com.simpleel.cordova.crosspay;
 
 import java.util.Map;
 

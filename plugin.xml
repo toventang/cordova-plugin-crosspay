@@ -13,7 +13,7 @@
         <hook type="before_plugin_uninstall" src="scripts/android-install.js" />
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="CrossPay">
-                <param name="android-package" value="com.simpleel.cordova.CrossPay" />
+                <param name="android-package" value="com.simpleel.cordova.crosspay.CrossPay" />
             </feature>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
@@ -24,7 +24,7 @@
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity android:name=".wxapi.WXPayEntryActivity" android:exported="true" android:launchMode="singleTop">
+            <activity android:label="@string/launcher_name" android:name=".wxapi.WXPayEntryActivity" android:exported="true" android:launchMode="singleTop">
                 <intent-filter>
                     <action android:name="android.intent.action.VIEW"/>
                     <category android:name="android.intent.category.DEFAULT"/>
@@ -34,9 +34,8 @@
             <activity android:name="com.alipay.sdk.app.H5PayActivity" android:configChanges="orientation|keyboardHidden|navigation" android:exported="false" android:screenOrientation="behind"></activity>
         </config-file>
         <!-- plugin source code -->
-        <source-file src="src/android/CrossPay.java" target-dir="src/com/simpleel/cordova"/>
-        <source-file src="src/android/PayResult.java" target-dir="src/com/simpleel/cordova"/>
-        <!-- <source-file src="src/android/WXPayEntryActivity.java" target-dir="src/com/gky/cra/wxapi"/> -->
+        <source-file src="src/android/CrossPay.java" target-dir="src/com/simpleel/cordova/crosspay"/>
+        <source-file src="src/android/PayResult.java" target-dir="src/com/simpleel/cordova/crosspay"/>
         <!-- Wechat libs -->
         <source-file src="src/android/libs/libammsdk.jar" target-dir="libs"/>
         <!-- Alipay libs -->

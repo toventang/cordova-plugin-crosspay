@@ -61,7 +61,7 @@ module.exports = function(context) {
                     throw err;
                 }
 
-                data = data.replace(/^package com.simpleel.cordova.wxpay;/m, 'package ' + packageName + '.wxapi;');
+                data = data.replace(/^package com.simpleel.cordova.crosspay.wxpay;/m, 'package ' + packageName + '.wxapi;');
                 console.log('Replace file ' + path.join(targetDir, f), 'packageName: ' + packageName);
                 fs.writeFileSync(path.join(targetDir, f), data);
             });

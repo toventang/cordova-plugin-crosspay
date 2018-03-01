@@ -1,4 +1,4 @@
-package com.simpleel.cordova.wxpay;
+package com.simpleel.cordova.crosspay.wxpay;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,7 +15,7 @@ import org.apache.cordova.CallbackContext;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.simpleel.cordova.CrossPay;
+import com.simpleel.cordova.crosspay.CrossPay;
 
 public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 

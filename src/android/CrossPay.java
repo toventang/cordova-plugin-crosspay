@@ -1,4 +1,4 @@
-package com.simpleel.cordova;
+package com.simpleel.cordova.crosspay;
 
 import org.apache.cordova.CordovaArgs;
 import org.apache.cordova.CordovaPlugin;
