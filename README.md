@@ -1,5 +1,6 @@
 # cordova-plugin-crosspay
 cordova跨平台支付插件，现支持ios、android的微信支付及支付宝支付。
+支持 Ionic 3，在 Ionic 2 环境下请安装 0.0.2 版本。
 
 # 安装方法
 ```
