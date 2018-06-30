@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-module.exports = function(context) {
+module.exports = function (context) {
     var path = context.requireCordovaModule('path'),
         fs = context.requireCordovaModule('fs'),
         shell = context.requireCordovaModule('shelljs'),
@@ -39,24 +39,24 @@ module.exports = function(context) {
         return;
     }
 
-    var targetDir = path.join(projectRoot, "platforms", "android", "src", packageName.replace(/\./g, path.sep), "wxapi");
+    var targetDir = path.join(projectRoot, 'platforms', 'android', 'app', 'src', 'main', 'java', packageName.replace(/\./g, path.sep), "wxapi");
     targetFiles = ["WXPayEntryActivity.java"];
 
     if (['after_plugin_add', 'after_plugin_install'].indexOf(context.hook) === -1) {
         // remove it?
-        targetFiles.forEach(function(f) {
+        targetFiles.forEach(function (f) {
             try {
                 console.log('Removing file ' + path.join(targetDir, f))
                 fs.unlinkSync(path.join(targetDir, f));
-            } catch (err) {}
+            } catch (err) { }
         });
     } else {
         // create directory
         shell.mkdir('-p', targetDir);
 
         // sync the content
-        targetFiles.forEach(function(f) {
-            fs.readFile(path.join(context.opts.plugin.dir, 'src', 'android', f), { encoding: 'utf-8' }, function(err, data) {
+        targetFiles.forEach(function (f) {
+            fs.readFile(path.join(context.opts.plugin.dir, 'src', 'android', f), { encoding: 'utf-8' }, function (err, data) {
                 if (err) {
                     throw err;
                 }

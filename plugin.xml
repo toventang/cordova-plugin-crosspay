@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-crosspay" version="0.0.2" 
+<plugin id="cordova-plugin-crosspay" version="0.0.3" 
     xmlns="http://apache.org/cordova/ns/plugins/1.0" 
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>cordova-plugin-crosspay</name>
@@ -11,7 +11,7 @@
         <hook type="after_plugin_install" src="scripts/android-install.js" />
         <hook type="before_plugin_rm" src="scripts/android-install.js" />
         <hook type="before_plugin_uninstall" src="scripts/android-install.js" />
-        <config-file parent="/*" target="res/xml/config.xml">
+        <config-file parent="/*" target="app/src/main/res/xml/config.xml">
             <feature name="CrossPay">
                 <param name="android-package" value="com.simpleel.cordova.crosspay.CrossPay" />
             </feature>
@@ -34,12 +34,12 @@
             <activity android:name="com.alipay.sdk.app.H5PayActivity" android:configChanges="orientation|keyboardHidden|navigation" android:exported="false" android:screenOrientation="behind"></activity>
         </config-file>
         <!-- plugin source code -->
-        <source-file src="src/android/CrossPay.java" target-dir="src/com/simpleel/cordova/crosspay"/>
-        <source-file src="src/android/PayResult.java" target-dir="src/com/simpleel/cordova/crosspay"/>
+        <source-file src="src/android/CrossPay.java" target-dir="app/src/main/java/com/simpleel/cordova/crosspay"/>
+        <source-file src="src/android/PayResult.java" target-dir="app/src/main/java/com/simpleel/cordova/crosspay"/>
         <!-- Wechat libs -->
-        <source-file src="src/android/libs/libammsdk.jar" target-dir="libs"/>
+        <source-file src="src/android/libs/libammsdk.jar" target-dir="app/src/main/libs"/>
         <!-- Alipay libs -->
-        <source-file src="src/android/libs/alipaySdk-20170922.jar" target-dir="libs"/>
+        <source-file src="src/android/libs/alipaySdk-20170922.jar" target-dir="app/src/main/libs"/>
     </platform>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
