@@ -4,8 +4,8 @@ cordova跨平台支付插件，现支持ios、android的微信支付及支付宝
 
 # 安装方法
 ```
-cordova plugin add https://github.com/toventang/cordova-plugin-crosspay --save</br>
-或</br>
+cordova plugin add https://github.com/toventang/cordova-plugin-crosspay --save
+或
 cordova plugin add cordova-plugin-crosspay
 ```
 支付所需的APPID等都由后台接口返回，不放在APP代码里。
